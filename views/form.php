@@ -1,6 +1,6 @@
 <?php
 
-$post_type = 'contact';
+$post_type = 'zmcontact';
 $post_type_obj = get_post_types( array( 'name' => $post_type), 'objects' );
 
 $submission = New zMSubmission;

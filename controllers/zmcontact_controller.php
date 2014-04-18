@@ -3,7 +3,7 @@
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/zm-easy-cpt/helpers.php';
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/zm-easy-cpt/submission.php';
 
-Class Contact extends zMCustomPostTypeBase {
+Class zmContact extends zMCustomPostTypeBase {
 
     private $my_cpt;
 
@@ -166,19 +166,14 @@ Class Contact extends zMCustomPostTypeBase {
 
     public function email( $post_id=null, $message=null ){
 
-        if ( mail( 'admin@zanematthew.com', 'mail test', 'none' ) != false){
-            echo 'You can send email';
-        } else {
-            echo 'no';
-        }
         // check setting
 
-        $headers[] = 'From: Me Myself <zanematthew@gmail.com>';
-        $headers[] = 'Cc: John Q Codex <zanematthew@gmail.com>';
+        $headers[] = 'From: Admin <admin@zanematthew.com>';
+        $headers[] = 'Cc: Zane M. Kolnik <zanematthew@gmail.com>';
 
         $email = array(
-            'to' => 'zanematthew@gmail.com',
-            'subject' => 'email test',
+            'to' => array('dianavelasquezm@gmail.com'),
+            'subject' => 'From website',
             'message' => "View the entry here {$post_id} detail below:\n" . print_r( $message, true ),
             'headers' => $headers
             );
