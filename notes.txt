@@ -8,3 +8,4 @@
     * Use Harvest/Chosen
     * Email authors
     * Form labels?
+* repo zm-easy-cpt

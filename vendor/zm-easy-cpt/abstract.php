@@ -555,7 +555,8 @@ abstract class zMCustomPostTypeBase {
         return $vars;
     }
 
-        /**
+
+    /**
      * Basically this is a wrapper for 'add_meta_box'. Allowing
      * us to register an unlimited number of meta sections in an
      * array format.
@@ -602,6 +603,7 @@ abstract class zMCustomPostTypeBase {
         if ( ! empty( $callback_args['args']['description'] ) )
             echo '<p class="description">'.$callback_args['args']['description'].'</p>';
 
+        do_action('before_meta_box_render_fields', $post);
         foreach( $callback_args['args']['fields'] as $field ){
 
             if ( empty( $field['name'] ) ){
@@ -649,6 +651,7 @@ abstract class zMCustomPostTypeBase {
                     print 'This is the default type';
                     break;
             }
+            do_action('after_meta_box_render_fields');
         }
     }
 

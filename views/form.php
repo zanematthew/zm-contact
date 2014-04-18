@@ -81,11 +81,11 @@ $submission = New zMSubmission;
             </div>
             <!-- -->
 
-            <?php if ( post_type_supports( $post_type, 'editor' ) ) : ?>
-                <div class="row">
-                    <label>Message</label><textarea name="content" rows="6"></textarea>
-                </div>
-            <?php endif; ?>
+            <!-- Message -->
+            <div class="row">
+                <label>Message</label><textarea name="content" rows="6"></textarea>
+            </div>
+            <!--  -->
         </div>
 
         <div class="button-container">

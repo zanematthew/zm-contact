@@ -13,12 +13,14 @@ Class Contact extends zMCustomPostTypeBase {
         add_action('init', array(&$this, 'init'));
         add_action( 'admin_init', array( &$this, 'adminInit' ) );
         add_action( 'save_post_project', array( &$this, 'save_post_project' ) );
-        add_action( 'admin_menu', array( &$this, 'admin_menu') );
+        add_action( 'admin_menu', array( &$this, 'remove_meta_box') );
 
         add_shortcode( 'zm_contact', array( &$this, 'shortcode' ) );
 
         add_action( 'wp_ajax_nopriv_postTypeSubmit', array( &$this, 'postTypeSubmit' ) );
         add_action( 'wp_ajax_postTypeSubmit', array( &$this, 'postTypeSubmit' ) );
+
+        add_action( 'before_meta_box_render_fields', array( &$this, 'extra_meta' ) );
     }
 
 
@@ -34,14 +36,20 @@ Class Contact extends zMCustomPostTypeBase {
 
 
     public function adminInit(){
-        $this->load_columns( $this->my_cpt );
         add_action( 'add_meta_boxes', array( &$this, 'metaSection' ) );
         add_action( 'save_post', array( &$this, 'metaSave' ) );
     }
 
 
+    public function remove_meta_box(){
+        remove_meta_box( 'zmcontact_categorydiv', $this->my_cpt, 'side' );
+        // Remove all meta boxes leave a placeholder div
+        // remove_meta_box( 'submitdiv', $this->my_cpt, 'side' );
+    }
+
+
     public function dumb(){
-        $this->load_assets( 'project' );
+        $this->load_assets( $this->my_cpt );
         wp_enqueue_script();
     }
 
@@ -145,13 +153,13 @@ Class Contact extends zMCustomPostTypeBase {
     }
 
 
-    public function set_taxonomy( $post_id=null, $category_id=null, $taxonomy=null ){
+    public function set_taxonomy( $post_id=null, $term_id=null, $taxonomy=null ){
         if ( empty( $post_id ) ){
             return false;
-        } elseif ( empty( $category_id ) ){
+        } elseif ( empty( $term_id ) ){
             return false;
         } else {
-            return wp_set_post_terms( $post_id, array( (int)$category_id ), $taxonomy );
+            return wp_set_post_terms( $post_id, array( (int)$term_id ), $taxonomy );
         }
     }
 
@@ -175,10 +183,21 @@ Class Contact extends zMCustomPostTypeBase {
             'headers' => $headers
             );
 
-
-        print_r( $email );
         $v = wp_mail( $email['to'], $email['subject'], $email['message'], $email['headers'], $email['attachments'] );
-        var_dump($v);
+
         return $v;
     }
+
+
+    public function extra_meta( $post ){?>
+        <textarea><?php echo get_post_field( 'post_content', $post->ID ); ?></textarea>
+        <?php $category_obj = wp_get_post_terms( $post->ID, 'zmcontact_category' ); ?>
+        <?php if ( ! empty( $category_obj ) ) : ?>
+            <strong>Category</strong><?php echo $category_obj[0]->name; ?>
+        <?php endif; ?>
+    <?php }
+
+
+    // If need be override metaSectionRender
+    // public function metaSectionRender( $post ){}
 }

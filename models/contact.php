@@ -16,7 +16,6 @@ $plugin->post_type = array(
         'type' => $my_cpt['type'],
         'label' => 'Contact',
         'menu_name' => $my_cpt['menu_name'],
-        'hierarchical' => true, // supports must contain 'page-attributes'
         'public' => true,
         'exclude_from_search' => true,
         'publicly_queryable' => false,
@@ -25,13 +24,11 @@ $plugin->post_type = array(
             ),
         'supports' => array(
             'title',
-            'editor',
-            'revisions',
-            'page-attributes'
+            // 'editor',
+            'revisions'
         ),
         'taxonomies' => array(
-            'zmcontact_category',
-            'budget'
+            'zmcontact_category'
             )
     )
 );
@@ -43,17 +40,13 @@ $plugin->taxonomy = array(
      array(
          'name' => 'zmcontact_category',
          'post_type' => $my_cpt['type'],
-         'hierarchical' => false,
+         'hierarchical' => true,
+         'show_admin_column' => true,
          'labels' => array(
             'name' => 'Categories',
             'singular_name' => 'Category',
             'add_new_item' => 'Add new Category'
             )
-         ),
-     array(
-         'name' => 'budget',
-         'post_type' => $my_cpt['type'],
-         'hierarchical' => false
          )
 );
 
