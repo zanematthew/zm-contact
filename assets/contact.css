@@ -1,0 +1,66 @@
+.freelance-contact-container select {
+    margin: 0 0 20px 0;
+    }
+
+.freelance-contact-container label {
+    display: block;
+    font-size: 14px;
+    font-family: helvetica;
+    }
+
+.freelance-contact-container input[type="text"],
+.freelance-contact-container textarea {
+    margin: 0 0 20px 0;
+    width: 100%;
+    }
+
+.freelance-contact-container textarea {
+    height: 200px;
+    }
+
+.freelance-contact-container input[disabled] {
+    opacity: 0.50;
+    }
+
+.freelance-contact-container .success-container {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #CBDBBE;
+    padding: 10px;
+    }
+
+.freelance-contact-container sup {
+    color: red;
+    }
+
+.freelance-contact-container fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    }
+
+
+
+.freelance-contact-container fieldset.first-name,
+.freelance-contact-container fieldset.last-name,
+.freelance-contact-container fieldset.phone-number,
+.freelance-contact-container fieldset.email {
+    float: left;
+    margin: 0 5% 0 0;
+    width: 50%;
+    }
+
+.freelance-contact-container fieldset.first-name,
+.freelance-contact-container fieldset.phone-number {
+    width: 45%;
+    }
+
+.freelance-contact-container fieldset.last-name,
+.freelance-contact-container fieldset.email {
+    margin: 0;
+    }
+
+.freelance-contact-container form .row {
+    clear: both;
+    width: 100%;
+    }

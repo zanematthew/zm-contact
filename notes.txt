@@ -1,0 +1,10 @@
+// wp_set_post_terms does not check/convert the cat id to int
+// and is problematic, it needs contributing to
+// @todo contribute
+* Sanitizing should be done in one area: $this->sanitize( $field );
+* Return wp_send_json
+* Email if successful
+* Settings
+    * Use Harvest/Chosen
+    * Email authors
+    * Form labels?
