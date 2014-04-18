@@ -1,0 +1,3 @@
+[submodule "lib/zm-easy-cpt"]
+	path = lib/zm-easy-cpt
+	url = git@github.com:zanematthew/zm-easy-cpt.git

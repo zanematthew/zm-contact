@@ -10,7 +10,7 @@
  */
 
 
-require_once plugin_dir_path( __FILE__ ) . 'vendor/zm-easy-cpt/functions.php';
+require_once plugin_dir_path( __FILE__ ) . 'lib/zm-easy-cpt/functions.php';
 $z = New zMCore;
 $z->zm_easy_cpt_reqiure( plugin_dir_path(__FILE__) );
 

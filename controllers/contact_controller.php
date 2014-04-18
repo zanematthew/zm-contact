@@ -1,7 +1,7 @@
 <?php
 
-require_once plugin_dir_path( dirname( __FILE__ ) ) . 'vendor/zm-easy-cpt/helpers.php';
-require_once plugin_dir_path( dirname( __FILE__ ) ) . 'vendor/zm-easy-cpt/submission.php';
+require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/zm-easy-cpt/helpers.php';
+require_once plugin_dir_path( dirname( __FILE__ ) ) . 'lib/zm-easy-cpt/submission.php';
 
 Class Contact extends zMCustomPostTypeBase {
 
