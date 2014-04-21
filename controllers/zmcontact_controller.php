@@ -184,7 +184,9 @@ Class zmContact extends zMCustomPostTypeBase {
     }
 
 
-    public function extra_meta( $post ){?>
+    public function extra_meta( $post ){
+        global $post_type;
+        if ( ! empty( $post_type ) && $post_type != $this->my_cpt ) return; ?>
         <textarea><?php echo get_post_field( 'post_content', $post->ID ); ?></textarea>
         <?php $category_obj = wp_get_post_terms( $post->ID, 'zmcontact_category' ); ?>
         <?php if ( ! empty( $category_obj ) ) : ?>
