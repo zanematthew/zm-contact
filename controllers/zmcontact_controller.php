@@ -50,7 +50,7 @@ Class zmContact extends zMCustomPostTypeBase {
 
     public function dumb(){
         $this->load_assets( $this->my_cpt );
-        wp_enqueue_script();
+        //wp_enqueue_script();
     }
 
 
