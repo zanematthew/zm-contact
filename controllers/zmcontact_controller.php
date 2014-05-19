@@ -172,7 +172,7 @@ Class zmContact extends zMCustomPostTypeBase {
         $headers[] = 'Cc: Zane M. Kolnik <zanematthew@gmail.com>';
 
         $email = array(
-            'to' => array('dianavelasquezm@gmail.com'),
+            'to' => array('diana@zanematthew.com'),
             'subject' => 'From website',
             'message' => "View the entry here {$post_id} detail below:\n" . print_r( $message, true ),
             'headers' => $headers
