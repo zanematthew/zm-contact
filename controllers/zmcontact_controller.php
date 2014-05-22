@@ -30,7 +30,7 @@ Class zmContact extends zMCustomPostTypeBase {
         $this->enqueueScripts();
 
         if ( is_admin() ){
-            add_action( 'admin_enqueue_scripts', array( &$this, 'dumb' ) );
+            // add_action( 'admin_enqueue_scripts', array( &$this, 'dumb' ) );
         }
     }
 
@@ -169,7 +169,7 @@ Class zmContact extends zMCustomPostTypeBase {
         // check setting
 
         $headers[] = 'From: Admin <admin@zanematthew.com>';
-        $headers[] = 'Cc: Zane M. Kolnik <zanematthew@gmail.com>';
+        $headers[] = 'Cc: Zane M. Kolnik <admin@zanematthew.com>';
 
         $email = array(
             'to' => array('diana@zanematthew.com'),
